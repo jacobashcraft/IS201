@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Number Guessing Game</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background: url('assets/img/questionBackground.jpg') no-repeat center center fixed;
+            background-size: cover;
+        }
+        .game-container {
+            text-align: center;
+            background-color: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            width: 80%;
+            max-width: 500px;
+        }
+        input[type="number"] {
+            padding: 15px;
+            margin: 10px 0;
+            width: 80px;
+            text-align: center;
+            font-size: 18px;
+        }
+        button {
+            padding: 15px 30px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-size: 18px;
+            margin: 10px;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        .start-over {
+            background-color: #f44336;
+        }
+        .start-over:hover {
+            background-color: #d32f2f;
+        }
+        .message {
+            font-size: 20px;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+        .feedback {
+            color: #f44336;
+        }
+        #attempts {
+            font-size: 18px;
+        }
+        .game-container {
+            background: rgba(255, 255, 255, 0.25);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        @keyframes shake {
+            0% { transform: translateX(0); }
+            20% { transform: translateX(-10px); }
+            40% { transform: translateX(10px); }
+            60% { transform: translateX(-10px); }
+            80% { transform: translateX(10px); }
+            100% { transform: translateX(0); }
+        }
+        .shake {
+            animation: shake 0.4s;
+        }  
+    </style>
+</head>
+<body>
+    <div class="game-container">
+        <h1>Guess the Number</h1>
+        <p>Guess the number between 1 and 100</p>
+        <input type="number" id="guessInput" min="1" max="100" placeholder="Guess">
+        <button onclick="checkGuess()">Guess</button>
+        <button class="start-over" onclick="startOver()">Start Over</button>
+        <p class="message" id="message"></p>
+        <p id="attempts">Attempts: 0</p>
+        <a href="scratch.html">From Scratch Page</a>
+    </div>
+
+    <script>
+        let randomNumber;
+        let attempts;
+        function startGame() {
+            randomNumber = Math.floor(Math.random() * 100) + 1;
+            attempts = 0;
+            document.getElementById('guessInput').disabled = false;
+            document.getElementById('guessInput').value = '';
+            document.getElementById('message').textContent = '';
+            document.getElementById('attempts').textContent = 'Attempts: 0';
+            document.getElementById('guessInput').focus();
+        }
+        function checkGuess() {
+            const guessInput = document.getElementById('guessInput');
+            const guess = Number(guessInput.value);
+            const message = document.getElementById('message');
+            const attemptsDisplay = document.getElementById('attempts');
+
+            if (guess < 1 || guess > 100 || isNaN(guess)) {
+                message.textContent = 'Please enter a number between 1 and 100.';
+                message.classList.add('feedback');
+                return;
+            }
+
+            attempts++;
+            attemptsDisplay.textContent = `Attempts: ${attempts}`;
+
+            if (guess < randomNumber) {
+                message.textContent = 'Too low! Try again.';
+                message.classList.remove('feedback');
+                shakeContainer();
+            } else if (guess > randomNumber) {
+                message.textContent = 'Too high! Try again.';
+                message.classList.remove('feedback');
+                shakeContainer();
+            } else {
+                message.textContent = `Congratulations! You guessed the number in ${attempts} attempts.`;
+                message.classList.remove('feedback');
+                guessInput.disabled = true;
+            }
+
+            guessInput.value = '';
+            guessInput.focus();
+        }
+        function shakeContainer() {
+            const container = document.querySelector('.game-container');
+            container.classList.remove('shake');
+            void container.offsetWidth;
+            container.classList.add('shake');
+        }
+        function startOver() {
+            startGame();
+        }
+        message.style.opacity = 0;
+        setTimeout(() => {
+            message.style.opacity = 1;
+            message.style.transform = "scale(1.05)";
+            setTimeout(() => message.style.transform = "scale(1)", 200);
+        }, 50);
+        window.onload = startGame;
+    </script>
+</body>
+</html>

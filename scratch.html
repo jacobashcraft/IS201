@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="css/scratch.css">
+</head>
+<body>
+    <div class="common header">
+        <h1 id="top">My Adventures</h1>
+    </div>
+
+    <nav>
+        <a href="index.html">Home Page</a>
+        <a href="webApp.html">Web App</a>
+    </nav>
+    <div class="common">
+        <br>
+        <h2>Yosemite National Park</h2>
+        <img src="assets/img/yosemite.jpg" alt="Yosemite Landscape" style="height: auto; width: 50%;">
+        <h3>Best Hikes</h3>
+        <ol>
+            <li>Cloud's Rest
+                <ul>
+                    <li>Distance:  14.5 miles round trip</li>
+                    <li>Elevation:  9,926 feet</li>
+                    <li>Elevation Gain:  1,775 feet</li>
+                </ul>
+            </li>
+            <li>Yosemite Falls
+                <ul>
+                    <li>Distance:  7.2 miles round trip</li>
+                    <li>Elevation Gain:  2,700 feet</li>
+                </ul>
+            </li>
+            <li>Mist Trail
+                <ul>
+                    <li>Distance:  5.4 miles round trip</li>
+                    <li>Elevation:  5,971 feet</li>
+                    <li>Elevation Gain:  2,000 feet</li>
+                </ul>
+            </li>
+
+        </ol>
+        <br>
+        <h2>Zion National Park</h2>
+        <!-- <img src="assets/img/zion.jpg" alt="Zion Landscape" style="height: auto; width: 20%;"> -->
+        <iframe width="560" height="315" src="https://www.youtube.com/watch?v=jRUAx4XsLXY"></iframe>
+        <h3>Best Hikes</h3>
+        <ol>
+            <li>Angel's Landing
+                <ul>
+                    <li>Distance:  5.4 miles round trip</li>
+                    <li>Elevation Gain:  1488 feet</li>
+                </ul>
+            </li>
+            <li>The Narrows
+                <ul>
+                    <li>Distance:  2-16 miles</li>
+                    <li>Elevation Gain:  300-2,000 feet</li>
+                </ul>
+            </li>
+
+        </ol>
+        <br>
+        <h2>Mount Timpanogos</h2>
+        <img src="assets/img/timp.jpg" alt="Mount Timpanogos Landscape" style="height: auto; width: 50%;">
+        <h3>Best Hikes</h3>
+        <ol>
+            <li>Mount Timpanogos
+                <ul>
+                    <li>Distance:  14.2 miles round trip</li>
+                    <li>Elevation:  11,753 feet</li>
+                    <li>Elevation Gain:  4,448 feet</li>
+                </ul>
+            </li>
+        </ol>
+        <br>
+    </div>
+    <div class="common footer">
+        <p>IS 201 - BYU 2025</p>
+        <a id="footerLink" href="#top">Go to top</a>
+    </div>
+
+    <h2>National Parks Tableau Dashboard</h2>
+    <div class='tableauPlaceholder' id='viz1744669779059' style='position: relative; margin: 0 auto;'>
+        <noscript>
+            <a href='#'><img alt='US National Parks ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Na&#47;NationalParksintheUS&#47;USNationalParks&#47;1_rss.png' style='border: none' /></a>
+        </noscript>
+        <object class='tableauViz'  style='display:none;'>
+            <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> 
+            <param name='embed_code_version' value='3' /> 
+            <param name='site_root' value='' />
+            <param name='name' value='NationalParksintheUS&#47;USNationalParks' />
+            <param name='tabs' value='no' />
+            <param name='toolbar' value='yes' />
+            <param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Na&#47;NationalParksintheUS&#47;USNationalParks&#47;1.png' />
+            <param name='animate_transition' value='yes' />
+            <param name='display_static_image' value='yes' />
+            <param name='display_spinner' value='yes' />
+            <param name='display_overlay' value='yes' />
+            <param name='display_count' value='yes' />
+            <param name='language' value='en-US' />
+        </object>
+    </div>                
+    <script type='text/javascript'>
+        var divElement = document.getElementById('viz1744669779059');
+        var vizElement = divElement.getElementsByTagName('object')[0];
+        if ( divElement.offsetWidth > 800 ) { 
+            vizElement.style.width='950px';vizElement.style.height='1027px';
+        } else if ( divElement.offsetWidth > 500 ) { 
+            vizElement.style.width='950px';vizElement.style.height='1027px';
+        } else { 
+            vizElement.style.width='100%';vizElement.style.height='827px';
+        }
+        var scriptElement = document.createElement('script');
+        scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
+        vizElement.parentNode.insertBefore(scriptElement, vizElement);                
+    </script>
+    <br><br><br>
+</body>
+</html>
